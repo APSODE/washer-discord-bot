@@ -1,21 +1,16 @@
-from typing import Dict, List, Optional
-from src.token.Token import Token
-from discord.ext import commands
-
-import discord
+from src.BotObject import WasherDiscordBot
 
 
-class WasherDiscordBot(commands.Bot):
+class WasherLee:
     def __init__(self):
-        self._token = Token.GetToken()
-        self._intent = discord.Intents.default()
+        self._bot_instance = WasherDiscordBot()
 
-        super(WasherDiscordBot, self).__init__(
-            command_prefix = "!",
-            intents = self._intent,
-
+    def Start(self) -> None:
+        self._bot_instance.run(
+            self._bot_instance.Token
         )
 
 
-    def _CreateInstanse(self):
-        pass
+if __name__ == '__main__':
+    WL = WasherLee()
+    WL.Start()
